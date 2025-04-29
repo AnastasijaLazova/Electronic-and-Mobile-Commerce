@@ -1,8 +1,6 @@
-package mk.ukim.finki.emt.lab.model;
+package mk.ukim.finki.emt.lab.model.domain;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 
 @Entity
@@ -52,4 +50,11 @@ public class Author {
         this.country = country;
     }
     public Author() {}
+
+    public Author(Long id, String name, String surname, Country country) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.country = country;
+    }
 }

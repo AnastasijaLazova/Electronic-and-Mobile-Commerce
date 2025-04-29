@@ -1,9 +1,8 @@
-package mk.ukim.finki.emt.lab.model;
+package mk.ukim.finki.emt.lab.model.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import mk.ukim.finki.emt.lab.model.enumerations.Category;
 
 @Entity
 @AllArgsConstructor
@@ -12,7 +11,7 @@ public class Book {
     @Id
     @GeneratedValue
     Long id;
-    String name;
+    String title;
     @Enumerated(EnumType.STRING)
     Category category;
 
@@ -21,16 +20,16 @@ public class Book {
     @ManyToOne
     Author author;
 
-    public Book(Long id, Category category, String name, Integer availableCopies, Author author) {
+    public Book(Long id, Category category, String title, Integer availableCopies, Author author) {
         this.id = id;
         this.category = category;
-        this.name = name;
+        this.title = title;
         this.availableCopies = availableCopies;
         this.author = author;
     }
 
-    public Book(String name, Category category, Author author, Integer availableCopies) {
-        this.name = name;
+    public Book(String title, Category category, Author author, Integer availableCopies) {
+        this.title = title;
         this.category = category;
         this.author = author;
         this.availableCopies = availableCopies;
@@ -44,12 +43,12 @@ public class Book {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String name) {
+        this.title = title;
     }
 
     public Category getCategory() {

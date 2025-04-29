@@ -1,11 +1,9 @@
-package mk.ukim.finki.emt.lab.service.impl;
+package mk.ukim.finki.emt.lab.service.domain.impl;
 
-import mk.ukim.finki.emt.lab.model.Book;
-import mk.ukim.finki.emt.lab.model.Country;
-import mk.ukim.finki.emt.lab.model.exceptions.InvalidAuthorId;
+import mk.ukim.finki.emt.lab.model.domain.Country;
 import mk.ukim.finki.emt.lab.model.exceptions.InvalidCountryIdException;
 import mk.ukim.finki.emt.lab.repository.CountryRepository;
-import mk.ukim.finki.emt.lab.service.CountryService;
+import mk.ukim.finki.emt.lab.service.domain.CountryService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

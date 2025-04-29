@@ -1,13 +1,13 @@
-package mk.ukim.finki.emt.lab.service.impl;
+package mk.ukim.finki.emt.lab.service.domain.impl;
 
-import mk.ukim.finki.emt.lab.model.Book;
-import mk.ukim.finki.emt.lab.model.Category;
+import mk.ukim.finki.emt.lab.model.domain.Book;
+import mk.ukim.finki.emt.lab.model.enumerations.Category;
 import mk.ukim.finki.emt.lab.model.exceptions.InvalidAuthorId;
 import mk.ukim.finki.emt.lab.model.exceptions.InvalidBookIdException;
 import mk.ukim.finki.emt.lab.model.exceptions.NoAvailableCopies;
 import mk.ukim.finki.emt.lab.repository.BookRepository;
-import mk.ukim.finki.emt.lab.service.AuthorService;
-import mk.ukim.finki.emt.lab.service.BookService;
+import mk.ukim.finki.emt.lab.service.domain.AuthorService;
+import mk.ukim.finki.emt.lab.service.domain.BookService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -45,9 +45,9 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Optional<Book> update(Long id, String name, Category category, Long authorId, Integer availableCopies) {
+    public Optional<Book> update(Long id, String title, Category category, Long authorId, Integer availableCopies) {
         Book book = findById(id).orElseThrow(InvalidAuthorId::new);
-        book.setName(name);
+        book.setTitle(title);
         book.setCategory(category);
         book.setAuthor(this.authorService.findById(authorId).orElseThrow(InvalidAuthorId::new));
         book.setAvailableCopies(availableCopies);
